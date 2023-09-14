@@ -8,9 +8,9 @@ public class Quest : BaseQuest
     {
         Io io = Io.Instance;
         VectorHandler vectorHandler = new();
-        List<byte[]> queries = io.GetLines("номера_запросы.txt");
-        List<byte[]> laws = io.GetLines("номера_законов.txt");
-        List<byte[]> decisions = io.GetLines("номера_судебных_решений.txt");
+        List<byte[]> queries = io.GetLines("Source\\номера_запросы.txt");
+        List<byte[]> laws = io.GetLines("Source\\номера_законов.txt");
+        List<byte[]> decisions = io.GetLines("Source\\номера_судебных_решений.txt");
         vectorHandler.Start(queries.Take(1), laws, decisions);
     }
 }

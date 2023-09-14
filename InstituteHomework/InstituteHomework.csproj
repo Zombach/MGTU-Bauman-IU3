@@ -17,4 +17,16 @@
     <Folder Include="Enums\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Source\номера_законов.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Source\номера_запросы.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Source\номера_судебных_решений.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
