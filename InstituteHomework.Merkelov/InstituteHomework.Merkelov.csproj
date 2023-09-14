@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Task4\" />
+    <Folder Include="Task5\" />
+    <Folder Include="Task6\" />
+    <Folder Include="Task7\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\InstituteHomework.Core\InstituteHomework.Core.csproj" />
+  </ItemGroup>
+
+</Project>
