@@ -10,4 +10,12 @@
     <ProjectReference Include="..\InstituteHomework.Core\InstituteHomework.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Task2\" />
+    <Folder Include="Task3\" />
+    <Folder Include="Task4\" />
+    <Folder Include="Task5\" />
+    <Folder Include="Task6\" />
+  </ItemGroup>
+
 </Project>

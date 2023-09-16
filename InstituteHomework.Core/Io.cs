@@ -8,10 +8,7 @@ public class Io
 
     public static Io Instance = InstanceIo ??= new Io();
 
-    static Io()
-    {
-        Console.InputEncoding = Encoding.GetEncoding("utf-16");
-    }
+    static Io() => Console.InputEncoding = Encoding.GetEncoding("utf-16");
 
     public string GetLine(string message)
     {
@@ -64,30 +61,15 @@ public class Io
 
     private bool Parse<T>(string? source, out T? result)
     {
-        object? obj = default;
-        bool isParse = typeof(T) switch
+        result = typeof(T) switch
         {
-            { } type when type == typeof(int) => ((Func<bool>)(() =>
-            {
-                bool parse = int.TryParse(source, out int digital);
-                obj = parse ? digital : default;
-                return parse;
-            }))(),
-            { } type when type == typeof(float) => ((Func<bool>)(() =>
-            {
-                bool parse = float.TryParse(source, out float digital);
-                obj = parse ? digital : default;
-                return parse;
-            }))(),
-            { } type when type == typeof(double) => ((Func<bool>)(() =>
-            {
-                bool parse = double.TryParse(source, out double digital);
-                obj = parse ? digital : default;
-                return parse;
-            }))(),
+            _ when typeof(T) == typeof(byte) => byte.TryParse(source, out byte digital) ? (T?)(object)digital : default,
+            _ when typeof(T) == typeof(short) => short.TryParse(source, out short digital) ? (T?)(object)digital : default,
+            _ when typeof(T) == typeof(int) => int.TryParse(source, out int digital) ? (T?)(object)digital : default,
+            _ when typeof(T) == typeof(float) => float.TryParse(source, out float digital) ? (T?)(object)digital : default,
+            _ when typeof(T) == typeof(float) => float.TryParse(source, out float digital) ? (T?)(object)digital : default,
             _ => throw new Exception("Не поддерживается тип")
         };
-        result = (T?)obj;
-        return isParse;
+        return result is not null;
     }
 }
