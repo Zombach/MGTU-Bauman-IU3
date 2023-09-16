@@ -1,7 +1,8 @@
-﻿using System.Globalization;
+﻿using System.ComponentModel;
 using InstituteHomework.Core;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace InstituteHomework.Vidmanov.Task2.Part1;
+namespace InstituteHomework.Vidmanov.Task2;
 
 /// <summary>
 /// 3.Работа с базовыми типами
@@ -30,10 +31,17 @@ public class Quest : BaseQuest
 {
     public override void Start()
     {
+        decimal capital = Part1();
+        capital = Part2(capital);
+        Part3();
+    }
+
+    private decimal Part1()
+    {
         Console.WriteLine("Разделитель для \"decimal\", используйте \",\"");
 
         decimal capital = Io.Instance.GetDigital<decimal>("Укажите капитал");
-        if (capital < 5000) 
+        if (capital < 5000)
         { Console.WriteLine("Предупреждение: Выбранный вами капитал меньше минимального остатка"); }
 
         int year = Io.Instance.GetDigital<int>("Укажите длительность вклада, в годах");
@@ -55,5 +63,41 @@ public class Quest : BaseQuest
 
         Console.WriteLine($"Итоговый остаток будет = {capital:0.000}\r\n");
         info.ForEach(Console.WriteLine);
+        return capital;
+    }
+
+    private decimal Part2(decimal capital)
+    {
+        Console.WriteLine();
+        Console.WriteLine($"Ваш капитал: {capital:0.000}");
+        int monthCount = Io.Instance.GetDigital<int>("Укажите длительность вклада, в месяцах");
+        Console.WriteLine($"Выбрано месяцев {monthCount:0.000}");
+        decimal current = capital;
+        for (int month = 1; month <= monthCount; month++)
+        {
+            decimal interestRate = GetInterestRate(month);
+            current += current * (interestRate / 100);
+            Console.WriteLine($"Остаток капитала: {current:0.000} $");
+            Console.WriteLine($"Норма прибыли: {interestRate:0.000} %");
+        }
+
+        Console.WriteLine();
+        Console.WriteLine($"Приращения капиталовложений за {monthCount}");
+        Console.WriteLine("Общая сумма:");
+        Console.WriteLine($"{(current-capital):0.000} $");
+        Console.WriteLine($"{(((current - capital)/capital) * 100):0.000} %");
+        return current;
+    }
+
+    private decimal GetInterestRate(int month)
+    {
+        decimal sin = (decimal)Math.Sin(2 * month);
+        decimal cos = (decimal)Math.Cos(3 * month);
+        return 0.1M + 0.02M * month * month + 0.5M * sin + cos;
+    }
+
+    private void Part3()
+    {
+
     }
 }
