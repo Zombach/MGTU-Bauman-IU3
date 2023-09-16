@@ -1,5 +1,4 @@
-﻿using System.Linq.Expressions;
-using InstituteHomework.Core;
+﻿using InstituteHomework.Core;
 
 namespace InstituteHomework.Vidmanov.Task2;
 
@@ -124,7 +123,8 @@ public class Quest : BaseQuest
     }
     private void Part3(decimal capital)
     {
-        int monthCount = Io.Instance.GetDigital<int>("Укажите длительность вклада, в месяцах");
+        int monthCount = Io.Instance.GetDigital<int>("Укажите длительность вклада, в месяцах 13 - 48");
+        if(monthCount is < 13 or > 48) { throw new ArgumentOutOfRangeException($"Не верный диапазон"); }
         Part2(capital, monthCount);
     }
 
