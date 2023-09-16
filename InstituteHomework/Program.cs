@@ -1,8 +1,6 @@
-﻿using InstituteHomework;
-using InstituteHomework.Core;
+﻿using InstituteHomework.Core;
 using InstituteHomework.Enums;
 using InstituteHomework.Facade;
-using InstituteHomework.Vidmanov;
 
 Io io = Io.Instance;
 Console.WriteLine("1 - Merkelov");
