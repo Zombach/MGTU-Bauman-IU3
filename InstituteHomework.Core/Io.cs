@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Globalization;
+using System.Text;
 
 namespace InstituteHomework.Core;
 
@@ -61,15 +62,17 @@ public class Io
 
     private bool Parse<T>(string? source, out T? result)
     {
-        result = typeof(T) switch
+        object? obj = typeof(T) switch
         {
-            _ when typeof(T) == typeof(byte) => byte.TryParse(source, out byte digital) ? (T?)(object)digital : default,
-            _ when typeof(T) == typeof(short) => short.TryParse(source, out short digital) ? (T?)(object)digital : default,
-            _ when typeof(T) == typeof(int) => int.TryParse(source, out int digital) ? (T?)(object)digital : default,
-            _ when typeof(T) == typeof(float) => float.TryParse(source, out float digital) ? (T?)(object)digital : default,
-            _ when typeof(T) == typeof(float) => float.TryParse(source, out float digital) ? (T?)(object)digital : default,
+            _ when typeof(T) == typeof(byte) => byte.TryParse(source, out byte digital) ? digital : null,
+            _ when typeof(T) == typeof(short) => short.TryParse(source, out short digital) ? digital : null,
+            _ when typeof(T) == typeof(int) => int.TryParse(source, out int digital) ? digital : null,
+            _ when typeof(T) == typeof(float) => float.TryParse(source, out float digital) ? digital : null,
+            _ when typeof(T) == typeof(double) => double.TryParse(source, out double digital) ? digital : null,
+            _ when typeof(T) == typeof(decimal) => !source?.Contains(".") ?? false ? decimal.TryParse(source, out decimal digital) ? digital : null : null,
             _ => throw new Exception("Не поддерживается тип")
         };
-        return result is not null;
+        result = obj is not null ? (T?)obj : default;
+        return obj is not null;
     }
 }

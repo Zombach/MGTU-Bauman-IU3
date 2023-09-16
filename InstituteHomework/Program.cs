@@ -45,6 +45,7 @@ else
     {
         1 => facade.Task1Part1,
         2 => facade.Task1Part2,
+        3 => facade.Task2Part1,
         _ => throw new Exception()
     };
     quest.Start();
