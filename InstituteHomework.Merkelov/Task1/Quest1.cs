@@ -16,9 +16,9 @@ public class Quest1 : BaseQuest
     public override void Start()
     {
         Io io = Io.Instance;
-        int a = io.GetDigital<int>("Введите сторону");
-        int h = io.GetDigital<int>("Введите высоту");
-        float s = (float)a * h / 2;
+        double a = io.GetDigital<double>("Введите сторону");
+        double h = io.GetDigital<double>("Введите высоту");
+        double s = a * h / 2;
         Console.WriteLine($"Площадь треугольника: {s}");
     }
 }
