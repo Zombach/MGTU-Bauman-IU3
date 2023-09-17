@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34004.107
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InstituteHomework", "InstituteHomework\InstituteHomework.csproj", "{627E8898-993A-466D-8A7C-77A4FD7FBF31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MGTU-Bauman-IU3", "MGTU-Bauman-IU3\MGTU-Bauman-IU3.csproj", "{627E8898-993A-466D-8A7C-77A4FD7FBF31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstituteHomework.Vidmanov", "InstituteHomework.Vidmanov\InstituteHomework.Vidmanov.csproj", "{6408A102-7828-41C5-8985-14A18F4A27C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MGTU-Bauman-IU3.Vidmanov", "MGTU-Bauman-IU3.Vidmanov\MGTU-Bauman-IU3.Vidmanov.csproj", "{6408A102-7828-41C5-8985-14A18F4A27C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstituteHomework.Merkelov", "InstituteHomework.Merkelov\InstituteHomework.Merkelov.csproj", "{24F06301-549C-4034-85FD-20A615A54FD6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MGTU-Bauman-IU3.Merkelov", "MGTU-Bauman-IU3.Merkelov\MGTU-Bauman-IU3.Merkelov.csproj", "{24F06301-549C-4034-85FD-20A615A54FD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstituteHomework.Core", "InstituteHomework.Core\InstituteHomework.Core.csproj", "{F79EC568-2057-4533-88B4-D6D88F6C18A9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MGTU-Bauman-IU3.Core", "MGTU-Bauman-IU3.Core\MGTU-Bauman-IU3.Core.csproj", "{F79EC568-2057-4533-88B4-D6D88F6C18A9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

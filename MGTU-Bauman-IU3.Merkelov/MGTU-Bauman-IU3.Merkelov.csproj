@@ -7,18 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\InstituteHomework.Core\InstituteHomework.Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Task3\" />
-    <Folder Include="Task4\" />
     <Folder Include="Task5\" />
     <Folder Include="Task6\" />
+    <Folder Include="Task7\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.DependencyValidation.Analyzers" Version="0.11.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MGTU-Bauman-IU3.Core\MGTU-Bauman-IU3.Core.csproj" />
   </ItemGroup>
 
 </Project>

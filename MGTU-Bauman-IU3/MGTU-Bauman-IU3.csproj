@@ -8,17 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\InstituteHomework.Core\InstituteHomework.Core.csproj" />
-    <ProjectReference Include="..\InstituteHomework.Merkelov\InstituteHomework.Merkelov.csproj" />
-    <ProjectReference Include="..\InstituteHomework.Vidmanov\InstituteHomework.Vidmanov.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Enums\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.DependencyValidation.Analyzers" Version="0.11.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MGTU-Bauman-IU3.Core\MGTU-Bauman-IU3.Core.csproj" />
+    <ProjectReference Include="..\MGTU-Bauman-IU3.Merkelov\MGTU-Bauman-IU3.Merkelov.csproj" />
+    <ProjectReference Include="..\MGTU-Bauman-IU3.Vidmanov\MGTU-Bauman-IU3.Vidmanov.csproj" />
   </ItemGroup>
 
   <ItemGroup>
