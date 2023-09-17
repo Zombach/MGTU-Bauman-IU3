@@ -44,7 +44,7 @@ public class Quest : BaseQuest
 
         Point testPoint = new(2, 4);
         bool isPointOnLine = line.IsPointOnLine(testPoint);
-        Console.WriteLine($"Точка ({testPoint.X}, {testPoint.Y}) принадлежит линии: {isPointOnLine}");
+        Console.WriteLine($"Точка ({testPoint.GetX()}, {testPoint.GetY()}) принадлежит линии: {isPointOnLine}");
 
         Square square = new(new Point(1, 1), 3);
         double squareArea = square.Area;

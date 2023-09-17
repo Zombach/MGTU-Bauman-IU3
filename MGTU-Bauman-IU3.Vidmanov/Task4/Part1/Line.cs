@@ -2,16 +2,20 @@
 
 public class Line
 {
-    public Point Start { get; set; }
-    public Point End { get; set; }
-    public double Length => Start.Distance(End);
+    private readonly Point _start;
+    private readonly Point _end;
+
+    public double Length => _start.Distance(_end);
 
     public Line(Point start, Point end)
     {
-        Start = start;
-        End = end;
+        _start = start;
+        _end = end;
     }
 
+    public Point Start() => _start;
+    public Point End() => _end;
+
     public bool IsPointOnLine(Point point)
-    => Math.Abs(Start.Distance(point) + End.Distance(point) - Length) < 0.001;
+    => Math.Abs(_start.Distance(point) + _end.Distance(point) - Length) < 0.001;
 }

@@ -16,6 +16,8 @@ public class Rectangle
     }
 
     public bool IsPointInside(Point point)
-    => point.X >= TopLeft.X && point.X <= TopLeft.X + Width
-    && point.Y >= TopLeft.Y && point.Y <= TopLeft.Y + Height;
+    => point.GetX() >= TopLeft.GetX() &&
+       point.GetX() <= TopLeft.GetX() + Width &&
+       point.GetY() >= TopLeft.GetY() &&
+       point.GetY() <= TopLeft.GetY() + Height;
 }

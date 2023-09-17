@@ -14,6 +14,6 @@ public class Square
     }
 
     public bool IsPointInside(Point point)
-    => point.X >= TopLeft.X && point.X <= TopLeft.X + SideLength
-    && point.Y >= TopLeft.Y && point.Y <= TopLeft.Y + SideLength;
+    => point.GetX() >= TopLeft.GetX() && point.GetX() <= TopLeft.GetX() + SideLength
+    && point.GetY() >= TopLeft.GetY() && point.GetY() <= TopLeft.GetY() + SideLength;
 }

@@ -20,11 +20,11 @@ public class Rhombus
     {
         double halfDiagonal1 = Diagonal1 / 2;
         double halfDiagonal2 = Diagonal2 / 2;
-        double centerX = Top.X + halfDiagonal1;
-        double centerY = Top.Y + halfDiagonal2;
+        double centerX = Top.GetX() + halfDiagonal1;
+        double centerY = Top.GetY() + halfDiagonal2;
 
-        double dx = Math.Abs(point.X - centerX);
-        double dy = Math.Abs(point.Y - centerY);
+        double dx = Math.Abs(point.GetX() - centerX);
+        double dy = Math.Abs(point.GetY() - centerY);
 
         return dx / halfDiagonal1 + dy / halfDiagonal2 <= 1;
     }

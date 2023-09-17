@@ -14,6 +14,6 @@ public class Circle
     }
 
     public bool IsPointInside(Point point)
-    => Math.Pow(point.X - Center.X, 2)
-    + Math.Pow(point.Y - Center.Y, 2) <= Math.Pow(Radius, 2);
+    => Math.Pow(point.GetX() - Center.GetX(), 2)
+    + Math.Pow(point.GetY() - Center.GetY(), 2) <= Math.Pow(Radius, 2);
 }

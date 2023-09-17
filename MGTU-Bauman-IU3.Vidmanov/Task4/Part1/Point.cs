@@ -2,15 +2,19 @@
 
 public class Point
 {
-    public double X;
-    public double Y;
+    private readonly double _x;
+
+    private double _y;
 
     public Point(double x, double y)
     {
-        X = x;
-        Y = y;
+        _x = x;
+        _y = y;
     }
 
+    public double GetX() => _x;
+    public double GetY() => _y;
+
     public double Distance(Point point)
-    => Math.Sqrt(Math.Pow(X - point.X, 2) - Math.Pow(Y - point.Y, 2));
+    => Math.Sqrt(Math.Pow(_x - point.GetX(), 2) - Math.Pow(_y - point.GetY(), 2));
 }
