@@ -39,9 +39,9 @@ public class Io
     public int[] GetArray(int size, string name)
     {
         int[] array = new int[size];
-        for (int i = 0; i < size; i++)
+        for (int i = 1; i <= size; i++)
         {
-            array[i] = GetDigital<int>($"Введите значение для массива {name}");
+            array[i - 1] = GetDigital<int>($"Введите значение {i} для массива {name}");
         }
         return array;
     }

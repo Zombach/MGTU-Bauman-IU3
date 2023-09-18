@@ -18,24 +18,25 @@ public class Quest : BaseQuest
 {
     public override void Start()
     {
-        Tree<int> tree = new(27);
-        tree.Insert(34);
-        tree.Insert(17);
-        tree.Insert(20);
-        tree.Insert(10);
-        tree.Insert(5);
-        tree.Insert(15);
-        tree.Insert(11);
-        tree.Insert(14);
-        tree.Insert(12);
-        tree.Insert(16);
-        tree.Insert(40);
-        tree.Insert(33);
-        tree.Insert(37);
+        Io io = Io.Instance;
+        int size = io.GetDigital<int>("Введите число вставляемых элементов:");
+        
+        if (size is <= 0)
+        { throw new ArgumentException("Элементов должно быть больше 0"); }
+        Tree<int> tree = new(io.GetDigital<int>("Введите число 1:"));
+        for (int i = 2; i <= size; i++)
+        {
+            int digital = io.GetDigital<int>($"Введите число {i}:");
+            tree.Insert(digital);
+        }
         tree.Traversal();
-        tree.Remove(33);
-        tree.Remove(15);
-        tree.Remove(14);
+
+        int remove = io.GetDigital<int>("Введите число удаляемых элементов:");
+        for (int i = 1; i <= remove; i++)
+        {
+            int digital = io.GetDigital<int>($"Введите число {i}:");
+            tree.Remove(digital);
+        }
         tree.Traversal();
     }
 }

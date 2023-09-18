@@ -2,45 +2,25 @@
 
 public class Constants
 {
-    private const string Task1Part1 = 
-    "1. Раздел 1, задание 1:\r\n" +
-    "\tПлощади треугольника.\r\n";
+    private const string Task1Part1 = " 1) Задание 1:а\tПлощади треугольника.";
     
-    private const string Task1Part2 = 
-    "2. Раздел 1, задание 2:\r\n" +
-    "\tМассивы. Ближайшие числа.\r\n";
+    private const string Task1Part2 = " 2) Задание 1:б\tМассивы. Ближайшие числа.";
 
-    private const string Task2Part1 =
-    "3. Раздел 2, задание 1:\r\n" +
-    "\tМассивы, посчитать число инверсий.\r\n";
+    private const string Task2Part1 = " 3) Задание 2:а\tМассивы. Посчитать число инверсий.";
 
-    private const string Task2Part2=
-    "4. Раздел 2, задание 2:\r\n" +
-    "\tРекурсивный бинарного поиск.\r\n";
+    private const string Task2Part2 = " 4) Задание 2:б\tРекурсивный бинарного поиск.";
 
-    private const string Task3 =
-    "5. Раздел 3\r\n" +
-    "\tHash-Таблица.\r\n";
+    private const string Task3 = " 5) Задание 3:\tHash-Таблица.";
 
-    private const string Task4 =
-    "6. Раздел 4:\r\n" +
-    "\tБинарное дерево.\r\n";
+    private const string Task4 = " 6) Задание 4:\tБинарное дерево.";
 
-    private const string Task5 =
-    "7. Раздел 5:\r\n" +
-    "\tРасстояние Дамерау-Левенштейна.\r\n";
+    private const string Task5 = " 7) Задание 5:\tРасстояние Дамерау-Левенштейна.";
 
-    private const string Task6 =
-    "8. Раздел 6:\r\n" +
-    "\tКрасно-черное дерево.\r\n";
+    private const string Task6 = " 8) Задание 6:\tКрасно-черное дерево.";
 
-    private const string Task7 =
-    "9. Раздел 7:\r\n" +
-    "\tГраф.\r\n";
+    private const string Task7 = " 9) Задание 7:\tГраф.";
 
-    private const string Task8 =
-    "10. Раздел 8:\r\n" +
-    "\tПоиск номеров.\r\n";
+    private const string Task8 = "10) Задание 8:\tПоиск номеров.";
 
     public void ViewTasks()
     {

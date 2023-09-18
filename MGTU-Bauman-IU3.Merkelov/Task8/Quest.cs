@@ -1,4 +1,5 @@
-﻿using MgtuBaumanIu3.Core;
+﻿using System.Text;
+using MgtuBaumanIu3.Core;
 
 namespace MgtuBaumanIu3.Merkelov.Task8;
 
@@ -23,6 +24,27 @@ public class Quest : BaseQuest
         List<byte[]> queries = io.GetLines("Source\\номера_запросы.txt");
         List<byte[]> laws = io.GetLines("Source\\номера_законов.txt");
         List<byte[]> decisions = io.GetLines("Source\\номера_судебных_решений.txt");
-        vectorHandler.Start(queries.Take(1), laws, decisions);
+
+        int size = io.GetDigital<int>("Укажите количество запросов");
+        if (size is <= 0)
+        { throw new ArgumentException("Количество не может быть меньше 1"); }
+
+        for (int i = 0; i < size; i++)
+        {
+            string query = io.GetLine("Укажите запрос");
+            byte[] bytes = Encoding.UTF8.GetBytes(query);
+            vectorHandler.Start(new List<byte[]>{ bytes }, laws, decisions);
+        }
+
+        Console.WriteLine();
+        size = io.GetDigital<int>("Укажите количество запросов из файла запросов");
+        if (size is <= 0)
+        { throw new ArgumentException("Количество не может быть меньше 1"); }
+        Random random = new();
+        for (int i = 0; i < size; i++)
+        {
+            byte[] bytes = queries[random.Next(0, queries.Count - 1)];
+            vectorHandler.Start(new List<byte[]>{ bytes }, laws, decisions);
+        }
     }
 }
