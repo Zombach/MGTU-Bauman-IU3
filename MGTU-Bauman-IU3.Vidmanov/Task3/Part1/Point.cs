@@ -1,4 +1,4 @@
-﻿namespace InstituteHomework.Vidmanov.Task3.Part1;
+﻿namespace MgtuBaumanIu3.Vidmanov.Task3.Part1;
 
 public struct Point
 {

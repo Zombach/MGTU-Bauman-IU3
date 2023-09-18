@@ -1,4 +1,4 @@
-﻿namespace InstituteHomework.Vidmanov.Task1.Part2;
+﻿namespace MgtuBaumanIu3.Vidmanov.Task1.Part2;
 
 public class Median
 {

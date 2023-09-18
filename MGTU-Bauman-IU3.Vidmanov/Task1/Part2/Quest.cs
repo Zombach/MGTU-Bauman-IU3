@@ -1,6 +1,6 @@
-﻿using InstituteHomework.Core;
+﻿using MgtuBaumanIu3.Core;
 
-namespace InstituteHomework.Vidmanov.Task1.Part2;
+namespace MgtuBaumanIu3.Vidmanov.Task1.Part2;
 
 /// <summary>
 /// Вариант №3. Найти координаты центра тяжести треугольника на плоскости, то есть

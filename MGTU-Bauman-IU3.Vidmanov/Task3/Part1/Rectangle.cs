@@ -1,6 +1,6 @@
 ﻿using Task3.Part1.Interfaces;
 
-namespace InstituteHomework.Vidmanov.Task3.Part1;
+namespace MgtuBaumanIu3.Vidmanov.Task3.Part1;
 
 public struct Rectangle : IArea, IPerimeter, IView
 {

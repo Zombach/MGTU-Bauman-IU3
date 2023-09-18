@@ -1,4 +1,4 @@
-﻿namespace InstituteHomework.Core;
+﻿namespace MgtuBaumanIu3.Core;
 
 public abstract class BaseQuest : IQuest
 {

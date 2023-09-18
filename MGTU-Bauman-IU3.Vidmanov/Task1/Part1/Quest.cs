@@ -1,6 +1,6 @@
-﻿using InstituteHomework.Core;
+﻿using MgtuBaumanIu3.Core;
 
-namespace InstituteHomework.Vidmanov.Task1.Part1;
+namespace MgtuBaumanIu3.Vidmanov.Task1.Part1;
 
 /// <summary>
 /// Вариант №1

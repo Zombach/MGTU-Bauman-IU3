@@ -1,4 +1,4 @@
-﻿namespace InstituteHomework.Vidmanov.Task3.Part2;
+﻿namespace MgtuBaumanIu3.Vidmanov.Task3.Part2;
 
 public struct ConveyerControl
 {

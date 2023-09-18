@@ -1,4 +1,4 @@
-﻿namespace InstituteHomework.Vidmanov;
+﻿namespace MgtuBaumanIu3.Vidmanov;
 
 public class Constants
 {

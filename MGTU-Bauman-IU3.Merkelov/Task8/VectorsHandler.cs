@@ -1,7 +1,7 @@
 ﻿using System.Numerics;
 using System.Text;
 
-namespace InstituteHomework.Merkelov.Task8;
+namespace MgtuBaumanIu3.Merkelov.Task8;
 
 public class VectorHandler
 {

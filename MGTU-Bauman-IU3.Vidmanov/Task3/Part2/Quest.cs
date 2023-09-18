@@ -1,6 +1,6 @@
-﻿using InstituteHomework.Core;
+﻿using MgtuBaumanIu3.Core;
 
-namespace InstituteHomework.Vidmanov.Task3.Part2;
+namespace MgtuBaumanIu3.Vidmanov.Task3.Part2;
 
 /// <summary>
 /// Написать программу управления конвейерной лентой на фабрике:

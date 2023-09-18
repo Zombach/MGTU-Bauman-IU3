@@ -1,6 +1,6 @@
-﻿using InstituteHomework.Core;
+﻿using MgtuBaumanIu3.Core;
 
-namespace InstituteHomework.Merkelov.Task2;
+namespace MgtuBaumanIu3.Merkelov.Task2;
 
 public class Quest2 : BaseQuest
 {

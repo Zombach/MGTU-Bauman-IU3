@@ -1,6 +1,6 @@
-﻿using InstituteHomework.Core;
-using InstituteHomework.Enums;
-using InstituteHomework.Facade;
+﻿using MgtuBaumanIu3.Core;
+using MgtuBaumanIu3.Enums;
+using MgtuBaumanIu3.Facade;
 
 Io io = Io.Instance;
 Console.WriteLine("1 - Merkelov");
@@ -38,7 +38,7 @@ if (professor is ProfessorEnum.Merkelov)
 else
 {
     VidmanovFacade facade = new();
-    InstituteHomework.Vidmanov.Constants constants = new();
+    MgtuBaumanIu3.Vidmanov.Constants constants = new();
     constants.ViewTasks();
     int number = io.GetDigital<int>("Выберете задание:");
     IQuest quest = number switch

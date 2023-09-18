@@ -1,4 +1,4 @@
-﻿namespace InstituteHomework.Vidmanov.Task4.Part1;
+﻿namespace MgtuBaumanIu3.Vidmanov.Task4.Part1;
 
 public class Line
 {

@@ -1,4 +1,4 @@
-﻿namespace InstituteHomework.Enums;
+﻿namespace MgtuBaumanIu3.Enums;
 
 public enum ProfessorEnum
 {

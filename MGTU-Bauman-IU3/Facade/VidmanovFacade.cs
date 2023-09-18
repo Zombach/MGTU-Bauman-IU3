@@ -1,6 +1,6 @@
-﻿using InstituteHomework.Core;
+﻿using MgtuBaumanIu3.Core;
 
-namespace InstituteHomework.Facade;
+namespace MgtuBaumanIu3.Facade;
 
 public class VidmanovFacade
 {

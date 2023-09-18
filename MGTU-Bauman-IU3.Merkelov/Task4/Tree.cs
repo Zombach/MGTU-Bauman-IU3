@@ -1,4 +1,4 @@
-﻿namespace InstituteHomework.Merkelov.Task4;
+﻿namespace MgtuBaumanIu3.Merkelov.Task4;
 
 public class Tree<T> where T : notnull
 {
