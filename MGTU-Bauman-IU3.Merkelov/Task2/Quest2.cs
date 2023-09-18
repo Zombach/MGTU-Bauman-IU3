@@ -11,11 +11,13 @@ public class Quest2 : BaseQuest
     {
         Io io = Io.Instance;
         int size = io.GetDigital<int>("Введите длину массива");
-        int[] array = io.GetArray(size, "A");
+        List<int> array = io.GetArray(size, "A").ToList();
+        array.Sort();
         Console.WriteLine($"Вы ввели: {string.Join(" ", array)}");
 
         int value = io.GetDigital<int>("Укажите искомое значение");
-        int result = BinarySearch(array, value, 0, array.Length - 1);
+        
+        int result = BinarySearch(array, value, 0, array.Count - 1);
 
         Console.WriteLine("Результат:");
         Console.WriteLine(result != -1
@@ -23,7 +25,7 @@ public class Quest2 : BaseQuest
         : $"Элемент {value} не найден в массиве");
     }
 
-    public int BinarySearch(int[] array, int value, int left, int right)
+    public int BinarySearch(List<int> array, int value, int left, int right)
     {
         if (left > right) return -1;
         int middle = left + (right - left) / 2;
