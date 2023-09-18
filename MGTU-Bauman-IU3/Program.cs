@@ -19,8 +19,10 @@ Console.WriteLine(professor);
 
 if (professor is ProfessorEnum.Merkelov)
 {
-    int number = io.GetDigital<int>("Выберете задание:");
     MerkelovFacade facade = new();
+    MgtuBaumanIu3.Merkelov.Constants constants = new();
+    constants.ViewTasks();
+    int number = io.GetDigital<int>("Выберете задание:");
     IQuest quest = number switch
     {
         1 => facade.Task1Part1,
@@ -30,7 +32,9 @@ if (professor is ProfessorEnum.Merkelov)
         5 => facade.Task3,
         6 => facade.Task4,
         7 => facade.Task5,
-        8 => facade.Task8,
+        8 => facade.Task6,
+        9 => facade.Task7,
+        10 => facade.Task8,
         _ => throw new Exception()
     };
     quest.Start();

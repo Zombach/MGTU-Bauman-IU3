@@ -2,6 +2,10 @@
 
 namespace MgtuBaumanIu3.Merkelov.Task5;
 
+/// <summary>
+/// Задание:  Вычислить расстояние Дамерау-Левенштейна для следующих пар слов:
+/// Аббревиатура и Бабреваитуар, Фуникулер и Уфнниуклер.
+/// </summary>
 public class Quest : BaseQuest
 {
     public override void Start()

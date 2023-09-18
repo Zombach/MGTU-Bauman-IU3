@@ -2,6 +2,9 @@
 
 namespace MgtuBaumanIu3.Merkelov.Task2;
 
+/// <summary>
+/// Реализовать алгоритм бинарного поиска через рекурсию.
+/// </summary>
 public class Quest2 : BaseQuest
 {
     public override void Start()
