@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <Folder Include="Task5\" />
-    <Folder Include="Task7\" />
+    <Folder Include="Task6\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MGTU-Bauman-IU3.Core\MgtuBaumanIu3.Core.csproj" />
+    <ProjectReference Include="..\MgtuBaumanIu3.Core\MgtuBaumanIu3.Core.csproj" />
   </ItemGroup>
 
 </Project>

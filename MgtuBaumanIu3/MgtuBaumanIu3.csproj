@@ -16,9 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MGTU-Bauman-IU3.Core\MgtuBaumanIu3.Core.csproj" />
-    <ProjectReference Include="..\MGTU-Bauman-IU3.Merkelov\MgtuBaumanIu3.Merkelov.csproj" />
-    <ProjectReference Include="..\MGTU-Bauman-IU3.Vidmanov\MgtuBaumanIu3.Vidmanov.csproj" />
+    <ProjectReference Include="..\MgtuBaumanIu3.Core\MgtuBaumanIu3.Core.csproj" />
+    <ProjectReference Include="..\MgtuBaumanIu3.Merkelov\MgtuBaumanIu3.Merkelov.csproj" />
+    <ProjectReference Include="..\MgtuBaumanIu3.Vidmanov\MgtuBaumanIu3.Vidmanov.csproj" />
   </ItemGroup>
 
   <ItemGroup>
