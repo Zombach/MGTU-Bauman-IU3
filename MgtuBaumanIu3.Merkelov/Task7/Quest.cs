@@ -11,6 +11,7 @@ public class Quest : BaseQuest
 {
     public override void Start()
     {
+        throw new NotImplementedException("Не реализовано!");
         Dictionary<char, Dictionary<char, int>> adjacencyList = new()
         {
             {'A', new Dictionary<char, int> { {'B', 7 } } },

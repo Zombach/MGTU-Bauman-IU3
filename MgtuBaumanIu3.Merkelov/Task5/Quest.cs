@@ -21,15 +21,8 @@ public class Quest : BaseQuest
     {
         int[,] distance = new int[first.Length + 1, second.Length + 1];
 
-        for (int i = 0; i <= first.Length; i++)
-        {
-            distance[i, 0] = i;
-        }
-
-        for (int i = 0; i <= second.Length; i++)
-        {
-            distance[0, i] = i;
-        }
+        for (int i = 0; i <= first.Length; i++) { distance[i, 0] = i; }
+        for (int i = 0; i <= second.Length; i++) { distance[0, i] = i; }
 
         for (int i = 1; i <= first.Length; i++)
         {

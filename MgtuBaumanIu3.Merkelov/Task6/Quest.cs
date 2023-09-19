@@ -14,6 +14,6 @@ public class Quest : BaseQuest
 {
     public override void Start()
     {
-        throw new NotImplementedException();
+        throw new NotImplementedException("Не реализовано!");
     }
 }
