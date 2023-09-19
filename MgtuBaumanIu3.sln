@@ -11,6 +11,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MgtuBaumanIu3.Merkelov", "M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MgtuBaumanIu3.Core", "MgtuBaumanIu3.Core\MgtuBaumanIu3.Core.csproj", "{F79EC568-2057-4533-88B4-D6D88F6C18A9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Builds", "Builds", "{D140BC5F-B8A3-4382-981C-02725D5DCB95}"
+	ProjectSection(SolutionItems) = preProject
+		Builds\MgtuBaumanIu3.exe = Builds\MgtuBaumanIu3.exe
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{69D08EB6-6577-40F6-9168-F84D0CF79C06}"
+	ProjectSection(SolutionItems) = preProject
+		Builds\Source\номера_законов.txt = Builds\Source\номера_законов.txt
+		Builds\Source\номера_запросы.txt = Builds\Source\номера_запросы.txt
+		Builds\Source\номера_судебных_решений.txt = Builds\Source\номера_судебных_решений.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +48,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{69D08EB6-6577-40F6-9168-F84D0CF79C06} = {D140BC5F-B8A3-4382-981C-02725D5DCB95}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {279B64A0-27D5-433D-BA54-A9D9ADF6D756}
