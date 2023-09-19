@@ -16,43 +16,51 @@ ProfessorEnum professor = digital switch
 
 Console.WriteLine(professor);
 
+do
+{
+    if (professor is ProfessorEnum.Merkelov)
+    {
+        MerkelovFacade facade = new();
+        MgtuBaumanIu3.Merkelov.Constants constants = new();
+        constants.ViewTasks();
+        int number = io.GetDigital<int>("Выберете задание:");
+        IQuest quest = number switch
+        {
+            1 => facade.Task1Part1,
+            2 => facade.Task1Part2,
+            3 => facade.Task2Part1,
+            4 => facade.Task2Part2,
+            5 => facade.Task3,
+            6 => facade.Task4,
+            7 => facade.Task5,
+            8 => facade.Task6,
+            9 => facade.Task7,
+            10 => facade.Task8,
+            _ => throw new Exception()
+        };
+        quest.Start();
+    }
+    else
+    {
+        VidmanovFacade facade = new();
+        MgtuBaumanIu3.Vidmanov.Constants constants = new();
+        constants.ViewTasks();
+        int number = io.GetDigital<int>("Выберете задание:");
+        IQuest quest = number switch
+        {
+            1 => facade.Task1Part1,
+            2 => facade.Task1Part2,
+            3 => facade.Task2Part1,
+            4 => facade.Task3Part1,
+            5 => facade.Task3Part2,
+            _ => throw new Exception()
+        };
+        quest.Start();
+    }
 
-if (professor is ProfessorEnum.Merkelov)
-{
-    MerkelovFacade facade = new();
-    MgtuBaumanIu3.Merkelov.Constants constants = new();
-    constants.ViewTasks();
-    int number = io.GetDigital<int>("Выберете задание:");
-    IQuest quest = number switch
-    {
-        1 => facade.Task1Part1,
-        2 => facade.Task1Part2,
-        3 => facade.Task2Part1,
-        4 => facade.Task2Part2,
-        5 => facade.Task3,
-        6 => facade.Task4,
-        7 => facade.Task5,
-        8 => facade.Task6,
-        9 => facade.Task7,
-        10 => facade.Task8,
-        _ => throw new Exception()
-    };
-    quest.Start();
-}
-else
-{
-    VidmanovFacade facade = new();
-    MgtuBaumanIu3.Vidmanov.Constants constants = new();
-    constants.ViewTasks();
-    int number = io.GetDigital<int>("Выберете задание:");
-    IQuest quest = number switch
-    {
-        1 => facade.Task1Part1,
-        2 => facade.Task1Part2,
-        3 => facade.Task2Part1,
-        4 => facade.Task3Part1,
-        5 => facade.Task3Part2,
-        _ => throw new Exception()
-    };
-    quest.Start();
-}
+    Console.WriteLine("Для завершения нажмите Escape!");
+    Console.WriteLine("Для продолжения любую другую!");
+    ConsoleKey key = Console.ReadKey(intercept: true).Key;
+    if(key is ConsoleKey.Escape) { return; }
+    
+} while (true);
