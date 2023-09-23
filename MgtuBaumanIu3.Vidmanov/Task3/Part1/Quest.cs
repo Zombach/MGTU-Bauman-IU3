@@ -35,44 +35,45 @@ public class Quest : BaseQuest
     public override void Start()
     {
         Point pointA = new(1, 2);
+        pointA.View();
         Point pointB = new(4, 6);
+        Point testPoint = new(2, 4);
 
         Line line = new(pointA, pointB);
-
-        double lineLength = line.Length;
-        Console.WriteLine($"Длина линии: {lineLength}");
-
-        Point testPoint = new(2, 4);
-        bool isPointOnLine = line.IsPointOnLine(testPoint);
-        Console.WriteLine($"Точка ({testPoint.X}, {testPoint.Y}) принадлежит линии: {isPointOnLine}");
-
+        bool isPointOnObject = line.IsPointOnObject(testPoint);
+        Console.WriteLine($"Точка ({testPoint.X}, {testPoint.Y}) принадлежит линии: {(isPointOnObject? "да": "нет")}");
+        line.View();
+        
         Square square = new(new Point(1, 1), 3);
         double squareArea = square.Area();
         double squarePerimeter = square.Perimeter();
         Console.WriteLine($"Площадь квадрата: {squareArea}, Периметр квадрата: {squarePerimeter}");
-        bool isPointInsideSquare = square.IsPointInside(new Point(2, 2));
+        bool isPointInsideSquare = square.IsPointOnObject(new Point(2, 2));
         Console.WriteLine($"Точка (2, 2) принадлежит квадрату: {isPointInsideSquare}");
+        square.View();
 
         Circle circle = new Circle(new Point(0, 0), 5);
         double circleArea = circle.Area();
         double circlePerimeter = circle.Perimeter();
         Console.WriteLine($"Площадь круга: {circleArea}, Периметр круга: {circlePerimeter}");
-        bool isPointInsideCircle = circle.IsPointInside(new Point(3, 3));
+        bool isPointInsideCircle = circle.IsPointOnObject(new Point(3, 3));
         Console.WriteLine($"Точка (3, 3) принадлежит кругу: {isPointInsideCircle}");
+        circle.View();
 
         Rectangle rectangle = new Rectangle(new Point(1, 1), 4, 2);
         double rectangleArea = rectangle.Area();
         double rectanglePerimeter = rectangle.Perimeter();
         Console.WriteLine($"Площадь прямоугольника: {rectangleArea}, Периметр прямоугольника: {rectanglePerimeter}");
-        bool isPointInsideRectangle = rectangle.IsPointInside(new Point(3, 2));
+        bool isPointInsideRectangle = rectangle.IsPointOnObject(new Point(3, 2));
         Console.WriteLine($"Точка (3, 2) принадлежит прямоугольнику: {isPointInsideRectangle}");
+        rectangle.View();
 
         Rhombus rhombus = new(new Point(1, 1), 4, 2);
         double rhombusArea = rhombus.Area();
         double rhombusPerimeter = rhombus.Perimeter();
         Console.WriteLine($"Площадь ромба: {rhombusArea}, Периметр ромба: {rhombusPerimeter}");
-        bool isPointInsideRhombus = rhombus.IsPointInside(new Point(3, 2));
+        bool isPointInsideRhombus = rhombus.IsPointOnObject(new Point(3, 2));
         Console.WriteLine($"Точка (3, 2) принадлежит ромбу: {isPointInsideRhombus}");
-
+        rhombus.View();
     }
 }

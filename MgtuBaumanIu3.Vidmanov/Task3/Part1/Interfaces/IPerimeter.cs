@@ -1,4 +1,4 @@
-﻿namespace Task3.Part1.Interfaces;
+﻿namespace MgtuBaumanIu3.Vidmanov.Task3.Part1.Interfaces;
 
 public interface IPerimeter
 {

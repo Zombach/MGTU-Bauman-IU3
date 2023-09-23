@@ -1,21 +1,21 @@
-﻿namespace MgtuBaumanIu3.Vidmanov.Task4.Part1;
+﻿using MgtuBaumanIu3.Vidmanov.Task4.Part1.Interfaces;
 
-public class Line
+namespace MgtuBaumanIu3.Vidmanov.Task4.Part1;
+
+public class Line(Point start, Point end) : IIsPointOnObject, IView
 {
-    private readonly Point _start;
-    private readonly Point _end;
+    public Point Start() => start;
 
-    public double Length => _start.Distance(_end);
+    public Point End() => end;
 
-    public Line(Point start, Point end)
+    public double Length() => start.Distance(end);
+
+    public bool IsPointOnObject(Point point)
+    => Math.Abs(start.Distance(point) + end.Distance(point) - Length()) < 0.001;
+
+    public void View()
     {
-        _start = start;
-        _end = end;
+        Console.WriteLine($"Start: x={start.GetX()}, y={start.GetY()}");
+        Console.WriteLine($"Длинна = {Length}");
     }
-
-    public Point Start() => _start;
-    public Point End() => _end;
-
-    public bool IsPointOnLine(Point point)
-    => Math.Abs(_start.Distance(point) + _end.Distance(point) - Length) < 0.001;
 }

@@ -1,19 +1,27 @@
-﻿namespace MgtuBaumanIu3.Vidmanov.Task4.Part1;
+﻿using MgtuBaumanIu3.Vidmanov.Task4.Part1.Interfaces;
 
-public class Square
+namespace MgtuBaumanIu3.Vidmanov.Task4.Part1;
+
+public class Square(Point topLeft, double sideLength)
+    : IArea, IPerimeter, IIsPointOnObject, IView
 {
-    public Point TopLeft { get; set; }
-    public double SideLength { get; set; }
-    public double Area => Math.Pow(SideLength, 2);
-    public double Perimeter => 4 * SideLength;
+    public Point TopLeft() => topLeft;
 
-    public Square(Point topLeft, double sideLength)
+    public double SideLength() => sideLength;
+
+    public double Area() => Math.Pow(sideLength, 2);
+
+    public double Perimeter() => 4 * sideLength;
+
+    public bool IsPointOnObject(Point point)
+    => point.GetX() >= topLeft.GetX() && point.GetX() <= topLeft.GetX() + sideLength
+    && point.GetY() >= topLeft.GetY() && point.GetY() <= topLeft.GetY() + sideLength;
+    
+    public void View()
     {
-        TopLeft = topLeft;
-        SideLength = sideLength;
+        Console.WriteLine($"TopLeft: x={topLeft.GetX()}, y={topLeft.GetY()}");
+        Console.WriteLine($"SideLength: {sideLength}");
+        Console.WriteLine($"Площадь: {Area()}");
+        Console.WriteLine($"Периметр: {Perimeter()} ");
     }
-
-    public bool IsPointInside(Point point)
-    => point.GetX() >= TopLeft.GetX() && point.GetX() <= TopLeft.GetX() + SideLength
-    && point.GetY() >= TopLeft.GetY() && point.GetY() <= TopLeft.GetY() + SideLength;
 }

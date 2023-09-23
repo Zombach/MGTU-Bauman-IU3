@@ -1,23 +1,32 @@
-﻿namespace MgtuBaumanIu3.Vidmanov.Task4.Part1;
+﻿using MgtuBaumanIu3.Vidmanov.Task4.Part1.Interfaces;
 
-public class Rectangle
+namespace MgtuBaumanIu3.Vidmanov.Task4.Part1;
+
+public class Rectangle(Point topLeft, double width, double height)
+    : IArea, IPerimeter, IIsPointOnObject, IView
 {
-    public Point TopLeft { get; set; }
-    public double Width { get; set; }
-    public double Height { get; set; }
-    public double Area => Width * Height;
-    public double Perimeter => 2 * (Width + Height);
+    public Point TopLeft() => topLeft;
 
-    public Rectangle(Point topLeft, double width, double height)
+    public double Width() => width;
+
+    public double Height() => height;
+
+    public double Area() => width * height;
+
+    public double Perimeter() => 2 * (width + height);
+
+    public bool IsPointOnObject(Point point) =>
+    point.GetX() >= topLeft.GetX() &&
+    point.GetX() <= topLeft.GetX() + width &&
+    point.GetY() >= topLeft.GetY() &&
+    point.GetY() <= topLeft.GetY() + height;
+    
+    public void View()
     {
-        TopLeft = topLeft;
-        Width = width;
-        Height = height;
+        Console.WriteLine($"TopLeft: x={topLeft.GetX()}, y={topLeft.GetY()}");
+        Console.WriteLine($"Width: {width}");
+        Console.WriteLine($"Height: {height}");
+        Console.WriteLine($"Площадь: {Area()}");
+        Console.WriteLine($"Периметр: {Perimeter()} ");
     }
-
-    public bool IsPointInside(Point point)
-    => point.GetX() >= TopLeft.GetX() &&
-       point.GetX() <= TopLeft.GetX() + Width &&
-       point.GetY() >= TopLeft.GetY() &&
-       point.GetY() <= TopLeft.GetY() + Height;
 }

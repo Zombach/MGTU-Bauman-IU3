@@ -1,28 +1,25 @@
-﻿using Task3.Part1.Interfaces;
+﻿using MgtuBaumanIu3.Vidmanov.Task3.Part1.Interfaces;
 
 namespace MgtuBaumanIu3.Vidmanov.Task3.Part1;
 
-public struct Square : IArea, IPerimeter, IView
+public readonly struct Square(Point topLeft, double sideLength)
+    : IArea, IPerimeter, IIsPointOnObject, IView
 {
-    public Point TopLeft { get; set; }
-    public double SideLength { get; set; }
-    
-    public Square(Point topLeft, double sideLength)
-    {
-        TopLeft = topLeft;
-        SideLength = sideLength;
-    }
-
-    public bool IsPointInside(Point point)
-    => point.X >= TopLeft.X && point.X <= TopLeft.X + SideLength
-    && point.Y >= TopLeft.Y && point.Y <= TopLeft.Y + SideLength;
+    public Point TopLeft => topLeft;
+    public double SideLength => sideLength;
 
     public double Area() => Math.Pow(SideLength, 2);
 
     public double Perimeter() => 4 * SideLength;
 
+    public bool IsPointOnObject(Point point)
+    => point.X >= TopLeft.X && point.X <= TopLeft.X + SideLength
+    && point.Y >= TopLeft.Y && point.Y <= TopLeft.Y + SideLength;
+
     public void View()
     {
+        Console.WriteLine($"TopLeft: x={topLeft.X}, y={topLeft.Y}");
+        Console.WriteLine($"SideLength: {sideLength}");
         Console.WriteLine($"Площадь: {Area()}");
         Console.WriteLine($"Периметр: {Perimeter()} ");
     }

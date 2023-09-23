@@ -53,6 +53,7 @@ do
             3 => facade.Task2,
             4 => facade.Task3Part1,
             5 => facade.Task3Part2,
+            6 => facade.Task4Part1,
             _ => throw new Exception()
         };
         quest.Start();

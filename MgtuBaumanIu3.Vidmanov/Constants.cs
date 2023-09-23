@@ -18,7 +18,7 @@ public class Constants
     "5) Задание 3:б\tСтруктуры и перечисления.";
 
     private const string Task4Part1 =
-    "6) Задание 4:a\tОбъявление типов.";
+    "6) Задание 4:a\tОбъявление типов. Структуры => классы";
 
     private const string Task4Part2 =
     "7) Задание 4:б\tОбъявление типов.";
