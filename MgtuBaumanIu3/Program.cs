@@ -55,6 +55,7 @@ do
             5 => facade.Task3Part2,
             6 => facade.Task4Part1,
             7 => facade.Task4Part2,
+            8 => facade.Task4Part3,
             _ => throw new Exception()
         };
         quest.Start();

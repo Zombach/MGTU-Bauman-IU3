@@ -1,23 +1,36 @@
 ﻿namespace MgtuBaumanIu3.Vidmanov.Task4.Part3;
 
-public abstract class Transport(string type, int fuel, int range, string licenseCategory)
+public abstract class Transport(string name, double fuel, double mileage, double strength, string category)
 {
-    public string Type => type;
-    public int Fuel => fuel;
-    public int Range => range;
-    public string LicenseCategory => licenseCategory;
+    public string Name => name;
 
-    private float _wear = 0;
+    public double Fuel { get; protected set; } = fuel;
 
-    public void Move(int distance)
+    public double Mileage { get; protected set; } = mileage;
+    public double Strength { get; protected set; } = strength;
+    public string Category => category;
+
+    public virtual void Move(double distance)
     {
-        // Рассчитываем износ и уменьшаем топливо
-        _wear += distance;
-        fuel -= distance;
+        if (Strength is <= 0)
+        {
+            Console.WriteLine("Сломан, нужен ремонт");
+            return;
+        }
+        // Реализация перемещения
+        Console.WriteLine($"{Name} двигается на расстояние {distance} км");
+        Fuel -= distance;
+        Mileage += distance;
+        ChangeState(5);
+    }
 
-        // Обновляем остаток топлива и запас хода
-        Console.WriteLine($"{type}: Перемещение на {distance} км.");
-        Console.WriteLine($"Остаток топлива: {fuel} литров");
-        Console.WriteLine($"Запас хода: {range - _wear} км.");
+    protected virtual void ChangeState(double wear) => Strength = Strength - wear < 0 ? 0 : Strength - wear;
+
+    public void DisplayInfo()
+    {
+        Console.WriteLine($"Транспортное средство: {Name}");
+        Console.WriteLine($"Остаток топлива: {Fuel} л");
+        Console.WriteLine($"Пробег: {Mileage} км");
+        Console.WriteLine($"Прочность: {Strength}%");
     }
 }
