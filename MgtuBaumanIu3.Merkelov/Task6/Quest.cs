@@ -14,6 +14,9 @@ public class Quest : BaseQuest
 {
     public override void Start()
     {
-        throw new NotImplementedException("Не реализовано!");
+        Tree tree = new();
+        tree.Insert(5);
+        tree.Insert(4);
+        tree.Insert(6);
     }
 }

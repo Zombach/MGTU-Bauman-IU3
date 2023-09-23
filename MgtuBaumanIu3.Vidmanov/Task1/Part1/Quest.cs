@@ -18,7 +18,7 @@ public class Quest : BaseQuest
         Original(x);
     }
 
-    private void Optimized(double x)
+    private void Original(double x)
     {
         try
         {
@@ -29,7 +29,7 @@ public class Quest : BaseQuest
         catch { throw new Exception("Делить на ноль нельзя"); }
     }
 
-    private void Original(double x)
+    private void Optimized(double x)
     {
         double x2 = x * x;
         double x3 = x2 * x;

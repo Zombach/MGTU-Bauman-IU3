@@ -73,6 +73,5 @@ public class Quest : BaseQuest
         Console.WriteLine($"Площадь ромба: {rhombusArea}, Периметр ромба: {rhombusPerimeter}");
         bool isPointInsideRhombus = rhombus.IsPointInside(new Point(3, 2));
         Console.WriteLine($"Точка (3, 2) принадлежит ромбу: {isPointInsideRhombus}");
-
     }
 }

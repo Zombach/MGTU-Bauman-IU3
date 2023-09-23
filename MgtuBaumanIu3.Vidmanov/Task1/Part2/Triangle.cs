@@ -1,31 +1,25 @@
 ﻿namespace MgtuBaumanIu3.Vidmanov.Task1.Part2;
 
-public class Triangle
+public class Triangle(Point pointA, Point pointB, Point pointC)
 {
-    public Vertex VertexA { get; set; }
-    public Median MedianA { get; set; }
-    public Vertex VertexB { get; set; }
-    public Median MedianB { get; set; }
-    public Vertex VertexC { get; set; }
-    public Median MedianC { get; set; }
-    public float CenterGravityX => (MedianA.X + MedianB.X + MedianC.X) / 3;
-    public float CenterGravityY => (MedianA.Y + MedianB.Y + MedianC.Y) / 3;
+    public Vertex VertexA { get; set; } = new Vertex(pointA);
+    public Vertex VertexB { get; set; } = new Vertex(pointB);
+    public Vertex VertexC { get; set; } = new Vertex(pointC);
 
-    public Triangle
+    private Median? _medianA;
+    public Median MedianA => _medianA ??= new Median(VertexA, VertexB);
+
+    private Median? _medianB;
+    public Median MedianB => _medianB ??= new Median(VertexB, VertexA);
+
+    private Median? _medianC;
+    public Median MedianC => _medianC ??= new Median(VertexC, VertexA);
+
+    private Point? _centerGravity;
+
+    public Point CenterGravity => _centerGravity ??= new Point
     (
-        float aX,
-        float aY,
-        float bX,
-        float bY,
-        float cX,
-        float cY
-    )
-    {
-        VertexA = new(aX, aY);
-        VertexB = new(bX, bY);
-        VertexC = new(cX, cY);
-        MedianA = new(VertexA, VertexB);
-        MedianB = new(VertexB, VertexA);
-        MedianC = new(VertexC, VertexA);
-    }
+        (MedianA.Point.X + MedianB.Point.X + MedianC.Point.X) / 3,
+        (MedianA.Point.Y + MedianB.Point.Y + MedianC.Point.Y) / 3
+    );
 }

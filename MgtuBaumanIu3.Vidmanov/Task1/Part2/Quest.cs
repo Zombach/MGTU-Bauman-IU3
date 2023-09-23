@@ -13,8 +13,26 @@ public class Quest : BaseQuest
 {
     public override void Start()
     {
-        Triangle triangle = new(0, 0, 3, 0, 0, 3);
-        float centerGravityX = triangle.CenterGravityX;
-        float centerGravityY = triangle.CenterGravityY;
+        Point pointA = GetPoint('A');
+        Point pointB = GetPoint('B');
+        Point pointC = GetPoint('C');
+
+        Triangle triangle = new(pointA, pointB, pointC);
+        ViewMedian(triangle.MedianA);
+        ViewMedian(triangle.MedianB);
+        ViewMedian(triangle.MedianC);
+        CenterGravity(triangle.CenterGravity);
     }
+
+    private Point GetPoint(char name)
+    {
+        Io io = Io.Instance;
+        Console.WriteLine($"Укажите точку {name}");
+        float x = io.GetDigital<float>("Укажите X");
+        float y = io.GetDigital<float>("Укажите Y");
+        return new(x, y);
+    }
+
+    public void ViewMedian(Median median) => Console.WriteLine($"Медиана А: x={median.Point.X}, y={median.Point.Y}");
+    public void CenterGravity(Point center) => Console.WriteLine($"Центр: x={center.X}, y={center.Y}");
 }

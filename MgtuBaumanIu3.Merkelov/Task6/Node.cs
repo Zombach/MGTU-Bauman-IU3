@@ -7,13 +7,14 @@ public class Node
     public Node? Left { get; set; }
     public Node? Right { get; set; }
     public int? Value { get; set; }
-    
-    public Node(int? value = null, Node? parent = null, Node? left = null, Node? right = null, ColorEnum color = ColorEnum.Red)
+
+
+    public Node(int? value = null)
     {
-        Color = color;
-        Parent = parent;
-        Left = left;
-        Right = right;
         Value = value;
+        Color = ColorEnum.Red;
+        Left = null;
+        Right = null;
+        Parent = null;
     }
 }

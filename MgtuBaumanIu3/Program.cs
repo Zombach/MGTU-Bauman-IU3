@@ -50,7 +50,7 @@ do
         {
             1 => facade.Task1Part1,
             2 => facade.Task1Part2,
-            3 => facade.Task2Part1,
+            3 => facade.Task2,
             4 => facade.Task3Part1,
             5 => facade.Task3Part2,
             _ => throw new Exception()

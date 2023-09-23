@@ -1,13 +1,10 @@
 ﻿namespace MgtuBaumanIu3.Vidmanov.Task1.Part2;
 
-public class Median
+public class Median(Vertex first, Vertex second)
 {
-    public float X { get; set; }
-    public float Y { get; set; }
-
-    public Median(Vertex vertex1, Vertex vertex2)
-    {
-        X = vertex1.X + ((float)2 / 3) * (vertex2.X - vertex1.X);
-        Y = vertex1.Y + ((float)2 / 3) * (vertex2.Y - vertex1.Y);
-    }
+    public Point Point { get; set; } = new
+    (
+        first.Point.X + ((float)2 / 3) * (second.Point.X - first.Point.X),
+        first.Point.Y + ((float)2 / 3) * (second.Point.Y - first.Point.Y)
+    );
 }

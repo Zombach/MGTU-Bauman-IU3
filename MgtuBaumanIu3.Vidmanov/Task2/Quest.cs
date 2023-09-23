@@ -85,13 +85,21 @@ public class Quest : BaseQuest
         Console.WriteLine($"Процентная ставка на прибыль (норма прибыли) – {rate}% годовых");
 
         List<string> info = new();
-        for (int i = 1; i <= year; i++)
+        try
         {
-            decimal remainder = capital * rate;
-            capital += remainder;
-            info.Add($"В {i} год");
-            info.Add($"Остаток {capital:0.000}");
-            info.Add($"Прибыль {remainder:0.000}");
+            for (int i = 1; i <= year; i++)
+            {
+                decimal remainder = capital * rate;
+                capital += remainder;
+                info.Add($"В {i} год");
+                info.Add($"Остаток {capital:0.000}");
+                info.Add($"Прибыль {remainder:0.000}");
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw new OverflowException("Значение было либо слишком большим, либо слишком маленьким для десятичной дроби");
         }
 
         Console.WriteLine($"Итоговый остаток будет = {capital:0.000}\r\n");
