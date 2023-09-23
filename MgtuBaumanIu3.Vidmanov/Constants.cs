@@ -21,7 +21,7 @@ public class Constants
     "6) Задание 4:a\tОбъявление типов. Структуры => классы";
 
     private const string Task4Part2 =
-    "7) Задание 4:б\tОбъявление типов.";
+    "7) Задание 4:б\tОбъявление типов. Информацию о зданиях";
 
     private const string Task4Part3 =
     "8) Задание 4:с\tОбъявление типов.";
@@ -37,5 +37,6 @@ public class Constants
         Console.WriteLine(Task3Part1);
         Console.WriteLine(Task3Part2);
         Console.WriteLine(Task4Part1);
+        Console.WriteLine(Task4Part2);
     }
 }

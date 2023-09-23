@@ -24,6 +24,6 @@ public class Quest : IQuest
 {
     public void Start()
     {
-        throw new NotImplementedException();
+        HorseCart horseCart = new(100, 2000);
     }
 }

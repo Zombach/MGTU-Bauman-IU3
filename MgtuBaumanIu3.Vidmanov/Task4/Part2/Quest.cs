@@ -19,6 +19,18 @@ public class Quest : IQuest
 {
     public void Start()
     {
-        throw new NotImplementedException();
+        // Создаем экземпляр жилого дома
+        Building house = new Building(2, 150, 4, TypeEnum.Home);
+
+        // Создаем экземпляр офисного здания
+        Building office = new Building(5, 300, 50, TypeEnum.Office);
+
+        // Выводим информацию о созданных зданиях
+        Console.WriteLine("Информация о жилом доме:");
+        house.ViewInfo();
+        Console.WriteLine();
+
+        Console.WriteLine("Информация о офисном здании:");
+        office.ViewInfo();
     }
 }

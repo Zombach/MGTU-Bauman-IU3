@@ -13,8 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Task4\Part2\" />
-    <Folder Include="Task4\Part3\" />
     <Folder Include="Task5\" />
     <Folder Include="Task6\" />
   </ItemGroup>
