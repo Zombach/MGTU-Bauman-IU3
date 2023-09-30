@@ -22,10 +22,7 @@ public class Building(int floors, double area, int residents, TypeEnum type)
 
     public void ViewInfo()
     {
-        Console.WriteLine
-        (
-            $"Тип здания: " +
-            $"{type}");
+        Console.WriteLine($"Тип здания: {type}");
         Console.WriteLine($"Количество этажей: {floors}");
         Console.WriteLine($"Общая площадь: {area} кв. м");
         Console.WriteLine($"Количество жильцов: {residents}");

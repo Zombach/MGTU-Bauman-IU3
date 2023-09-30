@@ -6,7 +6,7 @@ public class HorseCarriage(double fuel, double mileage, int wearAndTear) : Trans
 {
     public override void Move(double distance)
     {
-        if (Strength is >= 50)
+        if (Strength is 0)
         {
             Console.WriteLine("Сломан, нужен ремонт");
             return;

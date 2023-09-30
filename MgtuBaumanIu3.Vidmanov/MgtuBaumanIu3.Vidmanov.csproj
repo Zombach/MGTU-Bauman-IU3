@@ -7,18 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Task4\Новая папка\**" />
-    <EmbeddedResource Remove="Task4\Новая папка\**" />
-    <None Remove="Task4\Новая папка\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Task5\" />
     <Folder Include="Task6\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.DependencyValidation.Analyzers" Version="0.11.0" />
   </ItemGroup>
 
   <ItemGroup>
