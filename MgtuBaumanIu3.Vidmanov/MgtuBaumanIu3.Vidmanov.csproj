@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Task5\Part6\Interfaces\" />
     <Folder Include="Task6\" />
   </ItemGroup>
 
