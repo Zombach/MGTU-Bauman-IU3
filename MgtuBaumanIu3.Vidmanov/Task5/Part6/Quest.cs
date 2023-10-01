@@ -29,7 +29,5 @@ public class Quest : BaseQuest
         IPrintable souvenir = new Souvenir("Keychain souvenir");
         photo.Print();
         souvenir.Print();
-
-        Console.ReadLine();
     }
 }
