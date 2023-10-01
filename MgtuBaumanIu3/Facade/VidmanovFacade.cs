@@ -12,4 +12,5 @@ public class VidmanovFacade
     public IQuest Task4Part1 => new Vidmanov.Task4.Part1.Quest();
     public IQuest Task4Part2 => new Vidmanov.Task4.Part2.Quest();
     public IQuest Task4Part3 => new Vidmanov.Task4.Part3.Quest();
+    public IQuest Task5Part1 => new Vidmanov.Task5.Part1.Quest();
 }

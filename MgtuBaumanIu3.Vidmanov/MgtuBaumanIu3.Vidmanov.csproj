@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Task5\" />
     <Folder Include="Task6\" />
   </ItemGroup>
 
