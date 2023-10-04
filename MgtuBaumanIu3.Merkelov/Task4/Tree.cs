@@ -66,6 +66,6 @@ public class Tree<T>(T first) where T : notnull
     public void Print()
     {
         Console.WriteLine();
-        Head?.Print("", true);
+        Head?.Print(string.Empty, true);
     }
 }

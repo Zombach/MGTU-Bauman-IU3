@@ -1,175 +1,138 @@
-﻿namespace MgtuBaumanIu3.Merkelov.Task6;
+﻿using System.Drawing;
 
-public class Tree
+namespace MgtuBaumanIu3.Merkelov.Task6;
+
+public class Tree(int data)
 {
-    private Node _head;
-    private Node _null;
-
-    public Tree()
-    {
-        _null = new Node()
-        {
-            Color = ColorEnum.Black,
-            Left = null,
-            Right = null
-        };
-        _head = _null;
-    }
+    private Node _head = new(data);
 
     public void Insert(int value)
     {
-        Node node = new(value);
-        Node? y = null;
-        Node x = _head;
+        Node newNode = new(value);
 
-        while (x is not null)
+        Node? current = _head;
+        Node? parent = null;
+        while (current is not null)
         {
-            y = x;
-            if (value < x.Value)
-            {
-                x = x.Left;
-            }
-            else
-            {
-                x = x.Right;
-            }
+            parent = current;
+            current = value < current.Value ? current.Left : current.Right;
         }
 
-        node.Parent = y;
-        if (y == null)
-        {
-            _head = node;
-        }
-        else if (value < y.Value)
-        {
-            y.Left = node;
-        }
-        else
-        {
-            y.Right = node;
-        }
+        newNode.Parent = parent;
+        if (value < parent.Value) { parent.Left = newNode; }
+        else { parent.Right = newNode; }
 
-        if (node.Parent == null)
-        {
-            node.Color = ColorEnum.Black;
-            return;
-        }
-
-        if (node.Parent.Parent == null)
-        {
-            return;
-        }
-
-        FixInsert(node);
+        FixTreeInsert(newNode);
     }
 
-    private void FixInsert(Node k)
+    public void Print()
     {
-        Node u;
-        while (k.Parent.Color == ColorEnum.Red)
+        Console.WriteLine();
+        _head?.Print(string.Empty, true);
+    }
+
+    private void FixTreeInsert(Node node)
+    {
+        while (node.Parent != null && node != _head && node.Parent.NodeColor == Color.Red)
         {
-            if (k.Parent == k.Parent.Parent.Right)
+            if (node.Parent == node.Parent.Parent?.Left)
             {
-                u = k.Parent.Parent.Left; // uncle
-                if (u.Color == ColorEnum.Red)
+                Node? uncle = node.Parent.Parent.Right;
+
+                if (uncle is not null && uncle.NodeColor == Color.Red)
                 {
-                    u.Color = ColorEnum.Black;
-                    k.Parent.Color = ColorEnum.Black;
-                    k.Parent.Parent.Color = ColorEnum.Red;
-                    k = k.Parent.Parent;
+                    node.Parent.NodeColor = Color.Black;
+                    uncle.NodeColor = Color.Black;
+                    node.Parent.Parent.NodeColor = Color.Red;
+                    node = node.Parent.Parent;
                 }
                 else
                 {
-                    if (k == k.Parent.Left)
+                    if (node == node.Parent.Right)
                     {
-                        k = k.Parent;
-                        RotateRight(k);
+                        node = node.Parent;
+                        RotateLeft(node);
                     }
-                    k.Parent.Color = ColorEnum.Black;
-                    k.Parent.Parent.Color = ColorEnum.Red;
-                    RotateLeft(k.Parent.Parent);
+
+                    node.Parent.NodeColor = Color.Black;
+                    if (node.Parent.Parent != null)
+                    {
+                        node.Parent.Parent.NodeColor = Color.Red;
+                        RotateRight(node.Parent.Parent);
+                    }
                 }
             }
             else
             {
-                u = k.Parent.Parent.Right; // uncle
+                Node? uncle = node.Parent.Parent?.Left;
 
-                if (u.Color == ColorEnum.Red)
+                if (uncle != null && uncle.NodeColor == Color.Red)
                 {
-                    u.Color = ColorEnum.Black;
-                    k.Parent.Color = ColorEnum.Black;
-                    k.Parent.Parent.Color = ColorEnum.Red;
-                    k = k.Parent.Parent;
+                    node.Parent.NodeColor = Color.Black;
+                    uncle.NodeColor = Color.Black;
+                    if (node.Parent.Parent is not null)
+                    {
+                        node.Parent.Parent.NodeColor = Color.Red;
+                        node = node.Parent.Parent;
+                    }
                 }
                 else
                 {
-                    if (k == k.Parent.Right)
+                    if (node == node.Parent.Left)
                     {
-                        k = k.Parent;
-                        RotateLeft(k);
+                        node = node.Parent;
+                        RotateRight(node);
                     }
-                    k.Parent.Color = ColorEnum.Black;
-                    k.Parent.Parent.Color = ColorEnum.Red;
-                    RotateRight(k.Parent.Parent);
+
+                    if (node.Parent != null)
+                    {
+                        node.Parent.NodeColor = Color.Black;
+                        if (node.Parent.Parent is not null)
+                        {
+                            node.Parent.Parent.NodeColor = Color.Red;
+                            RotateLeft(node.Parent.Parent);
+                        }
+                    }
                 }
             }
-            if (k == _head)
-            {
-                break;
-            }
         }
-        _head.Color = ColorEnum.Black;
+
+        _head.NodeColor = Color.Black;
     }
 
-    // Вспомогательный метод для поворота влево
-    private void RotateLeft(Node x)
+    private void RotateLeft(Node node)
     {
-        Node y = x.Right;
-        x.Right = y.Left;
-        if (y.Left != _null)
+        Node? rightChild = node.Right;
+        node.Right = rightChild?.Left;
+
+        if (rightChild?.Left is not null) { rightChild.Left.Parent = node; }
+
+        if (rightChild is not null)
         {
-            y.Left.Parent = x;
+            rightChild.Parent = node.Parent;
+            if (node.Parent is null) { _head = rightChild; }
+            else if (node == node.Parent.Left) { node.Parent.Left = rightChild; }
+            else { node.Parent.Right = rightChild; }
+
+            rightChild.Left = node;
+            node.Parent = rightChild;
         }
-        y.Parent = x.Parent;
-        if (x.Parent == null)
-        {
-            _head = y;
-        }
-        else if (x == x.Parent.Left)
-        {
-            x.Parent.Left = y;
-        }
-        else
-        {
-            x.Parent.Right = y;
-        }
-        y.Left = x;
-        x.Parent = y;
     }
 
-    // Вспомогательный метод для поворота вправо
-    private void RotateRight(Node x)
+    private void RotateRight(Node node)
     {
-        Node y = x.Left;
-        x.Left = y.Right;
-        if (y.Right != _null)
+        Node? leftChild = node.Left;
+        node.Left = leftChild?.Right;
+
+        if (leftChild?.Right is not null)
+            leftChild.Right.Parent = node;
+
+        if (leftChild is not null)
         {
-            y.Right.Parent = x;
+            leftChild.Parent = node.Parent;
+            if (node.Parent == null) { _head = leftChild; }
+            else if (node == node.Parent.Left) { node.Parent.Left = leftChild; }
+            else { node.Parent.Right = leftChild; }
         }
-        y.Parent = x.Parent;
-        if (x.Parent == null)
-        {
-            _head = y;
-        }
-        else if (x == x.Parent.Right)
-        {
-            x.Parent.Right = y;
-        }
-        else
-        {
-            x.Parent.Left = y;
-        }
-        y.Right = x;
-        x.Parent = y;
     }
 }

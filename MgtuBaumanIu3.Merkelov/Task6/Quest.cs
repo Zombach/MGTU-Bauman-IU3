@@ -1,4 +1,5 @@
 ﻿using MgtuBaumanIu3.Core;
+using MgtuBaumanIu3.Merkelov.Task4;
 
 namespace MgtuBaumanIu3.Merkelov.Task6;
 
@@ -13,10 +14,26 @@ namespace MgtuBaumanIu3.Merkelov.Task6;
 public class Quest : BaseQuest
 {
     public override void Start()
-    {
-        Tree tree = new();
-        tree.Insert(5);
-        tree.Insert(4);
-        tree.Insert(6);
+    { Io io = Io.Instance;
+        int size = io.GetDigital<int>("Введите число вставляемых элементов:");
+
+        if (size is <= 0)
+        { throw new ArgumentException("Элементов должно быть больше 0"); }
+        Tree tree = new(io.GetDigital<int>("Введите число 1:"));
+        
+        for (int i = 2; i <= size; i++)
+        {
+            int digital = io.GetDigital<int>($"Введите число {i}:");
+            tree.Insert(digital);
+        }
+        tree.Print();
+
+        int remove = io.GetDigital<int>("Введите число удаляемых элементов:");
+        for (int i = 1; i <= remove; i++)
+        {
+            int digital = io.GetDigital<int>($"Введите число {i}:");
+            //tree.Remove(digital);
+        }
+        tree.Print();
     }
 }
