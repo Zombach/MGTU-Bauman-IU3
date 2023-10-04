@@ -31,7 +31,8 @@ public class Quest1 : BaseQuest
                 }
             }
         }
-        Console.WriteLine("Результат:");
+
+        Console.WriteLine($"Результат: {string.Join(" ", array)}");
         Console.WriteLine($"Инверсий: {inversion}");
     }
 }

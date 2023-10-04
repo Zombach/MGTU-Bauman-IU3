@@ -29,7 +29,7 @@ public class Quest : BaseQuest
             int digital = io.GetDigital<int>($"Введите число {i}:");
             tree.Insert(digital);
         }
-        tree.Traversal();
+        tree.Print();
 
         int remove = io.GetDigital<int>("Введите число удаляемых элементов:");
         for (int i = 1; i <= remove; i++)
@@ -37,6 +37,6 @@ public class Quest : BaseQuest
             int digital = io.GetDigital<int>($"Введите число {i}:");
             tree.Remove(digital);
         }
-        tree.Traversal();
+        tree.Print();
     }
 }

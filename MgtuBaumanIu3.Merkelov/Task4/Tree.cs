@@ -1,10 +1,8 @@
 ﻿namespace MgtuBaumanIu3.Merkelov.Task4;
 
-public class Tree<T> where T : notnull
+public class Tree<T>(T first) where T : notnull
 {
-    public Node<T>? Head { get; set; }
-
-    public Tree(T data) => Head = new Node<T>(data);
+    public Node<T>? Head { get; set; } = new(first);
 
     public void Insert(T data) => Head = Insert(Head, data);
 
@@ -33,13 +31,13 @@ public class Tree<T> where T : notnull
 
     public Node<T>? Remove(Node<T>? node, T key)
     {
-        if(node is null) { return null; }
+        if (node is null) { return null; }
         int hash = key.GetHashCode();
         if (hash < node.Hash)
         {
             node.Left = Remove(node.Left, key);
         }
-        else if(hash > node.Hash)
+        else if (hash > node.Hash)
         {
             node.Right = Remove(node.Right, key);
         }
@@ -48,8 +46,6 @@ public class Tree<T> where T : notnull
             if (node.Left is null) { return node.Right; }
             else if (node.Right is null) { return node.Left; }
             node.Data = MinValue(node.Right);
-
-            // Удаляем узел с минимальным значением из правого поддерева
             node.Right = Remove(node.Right, node.Data);
         }
 
@@ -67,22 +63,9 @@ public class Tree<T> where T : notnull
         return value;
     }
 
-    public void Traversal()
+    public void Print()
     {
-        if (Head is not null)
-        {
-            Console.WriteLine();
-            Traversal(Head);
-            return;
-        }
-        Console.WriteLine("Пустое дерево");
-    }
-
-    public void Traversal(Node<T>? node)
-    {
-        if (node is null) { return; }
-        Traversal(node.Left);
-        Console.Write($"{node.Data} ");
-        Traversal(node.Right);
+        Console.WriteLine();
+        Head?.Print("", true);
     }
 }
