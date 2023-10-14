@@ -24,9 +24,8 @@ public class Quest : BaseQuest
     };
     public override void Start()
     {
-        Dijkstra.DijkstraAlgo(_graph, 1, 10);
+        Dijkstra dijkstra = new();
+        dijkstra.Algorithm(_graph, 1, 10);
         Console.ReadKey();
-        //throw new NotImplementedException("Не реализовано!");
-
     }
 }

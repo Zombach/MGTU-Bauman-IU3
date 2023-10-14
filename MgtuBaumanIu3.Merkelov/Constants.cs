@@ -16,9 +16,9 @@ public class Constants
 
     private const string Task5 = " 7) Задание 5:\tРасстояние Дамерау-Левенштейна.";
 
-    private const string Task6 = " 8) Задание 6:\tКрасно-черное дерево.(Не реализовано)";
+    private const string Task6 = " 8) Задание 6:\tКрасно-черное дерево.";
 
-    private const string Task7 = " 9) Задание 7:\tГраф.(Не реализовано)";
+    private const string Task7 = " 9) Задание 7:\tГраф.";
 
     private const string Task8 = "10) Задание 8:\tПоиск номеров.";
 

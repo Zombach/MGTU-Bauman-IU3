@@ -4,7 +4,7 @@ namespace MgtuBaumanIu3.Merkelov.Task6;
 
 public class Tree(int data)
 {
-    private Node _head = new(data);
+    private Node? _head = new(data);
 
     public void Insert(int value)
     {
@@ -23,6 +23,148 @@ public class Tree(int data)
         else { parent.Right = newNode; }
 
         FixTreeInsert(newNode);
+    }
+
+    public void Remove(int value)
+    {
+        Node? node = FindNode(value);
+        if (node is null) { return; }
+        RemoveNode(node);
+    }
+
+    private Node? FindNode(int value)
+    {
+        Node? current = _head;
+        while (current is not null)
+        {
+            if (value == current.Value) { return current; }
+            else if (value < current.Value) { current = current.Left; }
+            else { current = current.Right; }
+        }
+        return null;
+    }
+
+    private Node? FindInOrderSuccessor(Node node)
+    {
+        Node? current = node.Right;
+        while (current?.Left is not null)
+        {
+            current = current.Left;
+        }
+        return current;
+    }
+
+    private void SwapNodes(Node first, Node second)
+    {
+        (first.Value, second.Value) = (second.Value, first.Value);
+        (first.NodeColor, second.NodeColor) = (second.NodeColor, first.NodeColor);
+    }
+
+    private void RemoveNode(Node node)
+    {
+        if (node is { Left: not null, Right: not null })
+        {
+            Node? replaceNode = FindInOrderSuccessor(node);
+            SwapNodes(node, replaceNode);
+            node = replaceNode;
+        }
+
+        Node? child = node.Left ?? node.Right;
+
+        Node? parent = node.Parent;
+
+        if (child is not null) { child.Parent = parent; }
+        if (parent is null) { _head = child; }
+        else
+        {
+            if (node == parent.Left) { parent.Left = child; }
+            else { parent.Right = child; }
+            if (node.NodeColor == Color.Black)
+            {
+                FixTreeRemove(child, parent);
+            }
+        }
+    }
+
+    private void FixTreeRemove(Node node, Node parent)
+    {
+        while (node != _head && (node is null || node.NodeColor == Color.Black))
+        {
+            Node sibling;
+            if (node == parent.Left)
+            {
+                sibling = parent.Right;
+                if (sibling.NodeColor == Color.Red)
+                {
+                    sibling.NodeColor = Color.Black;
+                    parent.NodeColor = Color.Red;
+                    RotateLeft(parent);
+                    sibling = parent.Right;
+                }
+
+                if ((sibling.Left == null || sibling.Left.NodeColor == Color.Black) &&
+                    (sibling.Right == null || sibling.Right.NodeColor == Color.Black))
+                {
+                    sibling.NodeColor = Color.Red;
+                    node = parent;
+                    parent = node.Parent;
+                }
+                else
+                {
+                    if (sibling.Right == null || sibling.Right.NodeColor == Color.Black)
+                    {
+                        sibling.Left.NodeColor = Color.Black;
+                        sibling.NodeColor = Color.Red;
+                        RotateRight(sibling);
+                        sibling = parent.Right;
+                    }
+                    sibling.NodeColor = parent.NodeColor;
+                    parent.NodeColor = Color.Black;
+                    sibling.Right.NodeColor = Color.Black;
+                    RotateLeft(parent);
+                    node = _head;
+                }
+            }
+            else
+            {
+                sibling = parent.Left;
+                if (sibling.NodeColor == Color.Red)
+                {
+                    sibling.NodeColor = Color.Black;
+                    parent.NodeColor = Color.Red;
+                    RotateRight(parent);
+                    sibling = parent.Left;
+                }
+
+                if
+                (
+                    (sibling.Right == null || sibling.Right.NodeColor == Color.Black) &&
+                    (sibling.Left == null || sibling.Left.NodeColor == Color.Black))
+                {
+                    sibling.NodeColor = Color.Red;
+                    node = parent;
+                    parent = node.Parent;
+                }
+                else
+                {
+                    if (sibling.Left == null || sibling.Left.NodeColor == Color.Black)
+                    {
+                        sibling.Right.NodeColor = Color.Black;
+                        sibling.NodeColor = Color.Red;
+                        RotateLeft(sibling);
+                        sibling = parent.Left;
+                    }
+
+                    sibling.NodeColor = parent.NodeColor;
+                    parent.NodeColor = Color.Black;
+                    sibling.Left.NodeColor = Color.Black;
+                    RotateRight(parent);
+                    node = _head;
+                }
+            }
+        }
+
+        if (node is not null) { node.NodeColor = Color.Black; }
     }
 
     public void Print()

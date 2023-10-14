@@ -32,7 +32,7 @@ public class Quest : BaseQuest
         for (int i = 1; i <= remove; i++)
         {
             int digital = io.GetDigital<int>($"Введите число {i}:");
-            //tree.Remove(digital);
+            tree.Remove(digital);
         }
         tree.Print();
     }

@@ -16,18 +16,8 @@ public class Dijkstra
 
         return minIndex;
     }
-
-    private void Print(int[] distance, int verticesCount)
-    {
-        Console.WriteLine("Вершина\tРасстояние от источника");
-
-        for (int i = 0; i < verticesCount; ++i)
-        {
-            Console.WriteLine("{0}\t  {1}", i, distance[i]);
-        }
-    }
-
-    public void DijkstraAlgo(int[,] graph, int source, int verticesCount)
+    
+    public void Algorithm(int[,] graph, int source, int verticesCount)
     {
         int[] distance = new int[verticesCount];
         bool[] shortestPathTreeSet = new bool[verticesCount];
@@ -58,5 +48,16 @@ public class Dijkstra
             }
         }
         Print(distance, verticesCount);
+    }
+
+
+    private void Print(int[] distance, int verticesCount)
+    {
+        Console.WriteLine("Вершина\tРасстояние от источника");
+
+        for (int i = 0; i < verticesCount; ++i)
+        {
+            Console.WriteLine("{0}\t  {1}", i, distance[i]);
+        }
     }
 }
